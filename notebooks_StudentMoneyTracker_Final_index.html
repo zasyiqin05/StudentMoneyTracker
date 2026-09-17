@@ -1,0 +1,361 @@
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Student Money Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="header">
+
+    <h1>💰 Student Money Tracker</h1>
+
+    <p>Manage your student finances easily</p>
+
+</div>
+
+
+<div class="container">
+
+
+    <!-- SUMMARY -->
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <h3>💰 Total Income</h3>
+
+            <div class="amount income"
+                 id="totalIncome">
+
+                RM 0.00
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>💸 Total Expense</h3>
+
+            <div class="amount expense"
+                 id="totalExpense">
+
+                RM 0.00
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>💵 Balance</h3>
+
+            <div class="amount balance"
+                 id="totalBalance">
+
+                RM 0.00
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🎯 Monthly Budget</h3>
+
+            <div class="amount budget"
+                 id="totalBudget">
+
+                RM 0.00
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- MENU -->
+
+    <div class="menu">
+
+        <button onclick="showIncomeForm()">
+            💰 Add Income
+        </button>
+
+
+        <button onclick="showExpenseForm()">
+            💸 Add Expense
+        </button>
+
+
+        <button onclick="showTransactions()">
+            📋 Transactions
+        </button>
+
+
+        <button>
+            📊 Monthly Report
+        </button>
+
+
+        <button>
+            🎯 Budget
+        </button>
+
+
+        <button>
+            📤 Export CSV
+        </button>
+
+    </div>
+
+
+
+    <!-- ADD INCOME FORM -->
+
+    <div class="form-box"
+         id="incomeForm"
+         style="display:none;">
+
+        <h2>💰 Add Income</h2>
+
+
+        <label>Date</label>
+
+        <input
+            type="date"
+            id="incomeDate"
+        >
+
+
+        <label>Income Source</label>
+
+        <select id="incomeCategory">
+
+            <option>Allowance</option>
+
+            <option>PTPTN</option>
+
+            <option>Scholarship</option>
+
+            <option>Part-time</option>
+
+            <option>Others</option>
+
+        </select>
+
+
+        <label>Amount (RM)</label>
+
+        <input
+            type="number"
+            id="incomeAmount"
+            placeholder="Example: 500"
+        >
+
+
+        <label>Description</label>
+
+        <input
+            type="text"
+            id="incomeDescription"
+            placeholder="Example: Monthly allowance"
+        >
+
+
+        <br>
+
+
+        <button class="save"
+                onclick="saveIncome()">
+
+            💾 Save Income
+
+        </button>
+
+
+        <button class="cancel"
+                onclick="hideForms()">
+
+            Cancel
+
+        </button>
+
+    </div>
+
+
+
+    <!-- ADD EXPENSE FORM -->
+
+    <div class="form-box"
+         id="expenseForm"
+         style="display:none;">
+
+        <h2>💸 Add Expense</h2>
+
+
+        <label>Date</label>
+
+        <input
+            type="date"
+            id="expenseDate"
+        >
+
+
+        <label>Expense Category</label>
+
+        <select id="expenseCategory">
+
+            <option>Food</option>
+
+            <option>Transport</option>
+
+            <option>Academic</option>
+
+            <option>Accommodation</option>
+
+            <option>Phone/Internet</option>
+
+            <option>Shopping</option>
+
+            <option>Entertainment</option>
+
+            <option>Savings</option>
+
+            <option>Others</option>
+
+        </select>
+
+
+        <label>Amount (RM)</label>
+
+        <input
+            type="number"
+            id="expenseAmount"
+            placeholder="Example: 12"
+        >
+
+
+        <label>Description</label>
+
+        <input
+            type="text"
+            id="expenseDescription"
+            placeholder="Example: Lunch"
+        >
+
+
+        <br>
+
+
+        <button class="save"
+                onclick="saveExpense()">
+
+            💾 Save Expense
+
+        </button>
+
+
+        <button class="cancel"
+                onclick="hideForms()">
+
+            Cancel
+
+        </button>
+
+    </div>
+
+
+
+    <!-- MESSAGE -->
+
+    <div id="message"></div>
+
+
+
+    <!-- TRANSACTIONS -->
+
+    <div class="transaction-box"
+         id="transactionBox"
+         style="display:none;">
+
+        <h2>📋 Transactions</h2>
+
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+
+                    <th>Date</th>
+
+                    <th>Type</th>
+
+                    <th>Category</th>
+
+                    <th>Amount</th>
+
+                    <th>Description</th>
+
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="transactionTable">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+</div>
+
+
+
+<div class="footer">
+
+    <p>
+        Student Money Tracker © 2026
+    </p>
+
+</div>
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
